@@ -1,6 +1,5 @@
 //APPEL API et Fetch
-/**
- */
+//Ici récupérer l'ensemble des arbres avec certaines conditions
 export async function callOpenTreeAPI() {
   try {
     const response = await fetch(
@@ -13,3 +12,5 @@ export async function callOpenTreeAPI() {
     console.error(err);
   }
 }
+
+//récupérer les arbres 1 par 1:
