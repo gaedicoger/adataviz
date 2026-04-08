@@ -22,14 +22,25 @@ export const displayCards = (tree) => {
         <h2 class="tree-card-name">${name}</h2>
         <h3 class="tree-card-subname">${subName}</h3>
         <p class="tree-card-year-plantation">Année de plantation : ${yearPlantation}</p>
-        <p class="tree-card-age">Age : ${age}</p>
-        <p class="tree-card-height">Taille : ${height}</p>
-        <p class="tree-card-grow-stade">${grow}</p>
+        <p class="tree-card-age hidden">Age : ${age}</p>
+        <p class="tree-card-height hidden">Taille : ${height}</p>
+        <p class="tree-card-grow-stade hidden">${grow}</p>
         <button class="see-more"> En savoir +</button>
         </div>`;
-
   // On l'ajoute au html (la liste)
   list.insertAdjacentHTML("beforeend", cardTree);
+  //Gestion du bouton "See more" pour afficher la description
+  // Récupère la dernière carte générée
+  const lastCard = list.lastElementChild;
+  //On récupère le bouton see-more de la dernière carte :
+  const seeMoreButton = lastCard.querySelector(".see-more");
+  //On récupère les infos supp de la dernière carte :
+  const infoSupp = lastCard.querySelectorAll(".hidden");
+  //Ecouter le bouton seeMore:
+  seeMoreButton.addEventListener("click", () => {
+    // boucler sur l'ensemble des infos récupérée par cartes
+    infoSupp.forEach((card) => {
+      card.classList.toggle("hidden"); //Toogle sur la classe hidden, caché/affiché
+    });
+  });
 };
-
-//Gestion du bouton "See more" pour afficher la description
