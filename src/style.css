@@ -23,6 +23,10 @@ body {
   justify-content: center;
 }
 
+header {
+  width: 100%;
+}
+
 #app {
   width: 100%;
   max-width: 1280px;
@@ -37,6 +41,10 @@ h1 {
 }
 
 h2 {
+  text-align: left;
+}
+
+h2.tree-card-name {
   text-align: center;
 }
 

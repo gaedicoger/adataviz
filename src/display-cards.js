@@ -6,16 +6,16 @@ const list = document.getElementById("cards-content");
 
 export const displayCards = (tree) => {
   // On récupère les noms d'espèces
-  const name = tree.lib_espece;
-  const subName = tree.lib_genre;
+  const name = tree.lib_genre ?? "Genre inconnue";
+  const subName = tree.lib_espece ?? "Espèce inconnue";
   // On récupère l'age
-  const age = tree.classe_age;
+  const age = tree.classe_age ?? "inconnu";
   //On récupère l'année de plantation
-  const yearPlantation = tree.annee_plantation;
+  const yearPlantation = tree.annee_plantation ?? "inconnue";
   // On récupère le stade de dev
-  const grow = tree.lib_stade_developpement;
+  const grow = tree.lib_stade_developpement ?? "inconnu";
   //On récupère la taille
-  const height = tree.lib_hauteur_totale;
+  const height = tree.lib_hauteur_totale ?? "inconnue";
 
   // On crée la div html
   const cardTree = `<div class="card-style" >
