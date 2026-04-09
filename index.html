@@ -12,12 +12,14 @@
       <h2>Découvre le patrimoine arboré de Nantes !</h2>
     </header>
     <div id="app">
-      <div id="search-content">
-        <input type="text" id="search-bar" name="search-bar" />
-        <button id="search">
-          <img id="search-icone" src="./img/icons8-loupe-100.png" />
-        </button>
-      </div>
+      <form id="search-form">
+        <div id="search-content">
+          <input type="text" id="search-bar" name="search-bar" required />
+          <button type="submit" id="search">
+            <img id="search-icone" src="./img/icons8-loupe-100.png" />
+          </button>
+        </div>
+      </form>
       <div id="cards-content"></div>
       <div id="buttons-pages"></div>
     </div>
