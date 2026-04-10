@@ -6,8 +6,10 @@ const list = document.getElementById("cards-content");
 
 export const displayCards = (tree) => {
   // On récupère les noms d'espèces
-  const name = tree.lib_genre ?? "Genre inconnue";
+  const name = tree.lib_genre ?? "Genre inconnu";
   const subName = tree.lib_espece ?? "Espèce inconnue";
+  //On récupère la ville
+  const city = tree.nom ?? "Commune inconnue";
   // On récupère l'age
   const age = tree.classe_age ?? "inconnu";
   //On récupère l'année de plantation
@@ -17,10 +19,44 @@ export const displayCards = (tree) => {
   //On récupère la taille
   const height = tree.lib_hauteur_totale ?? "inconnue";
 
+  //on récupère l'image
+  let imgSource = "";
+  //condition sur l'image à choisir
+  if (grow === "Adulte") {
+    imgSource = "/img/adulte.png";
+  }
+
+  switch (grow) {
+    case "Adulte":
+      imgSource = "/img/adulte.png";
+      break;
+
+    case "Juvénile":
+      imgSource = "/img/juvenile.png";
+      break;
+
+    case "Jeune":
+      imgSource = "/img/jeune.png";
+      break;
+
+    case "Mature":
+      imgSource = "/img/mature.png";
+      break;
+
+    default:
+      imgSource = "/img/default.png";
+  }
+
   // On crée la div html
   const cardTree = `<div class="card-style" >
-        <h2 class="tree-card-name">${name}</h2>
-        <h3 class="tree-card-subname">${subName}</h3>
+        <div class="card-header">
+          <img src="${imgSource}" alt="Icône de stade de développement"/>
+          <div class="card-titles">
+            <h2 class="tree-card-name">${name}</h2>
+            <h3 class="tree-card-subname">${subName}</h3>
+          </div>
+        </div>
+        <h4 class="tree-card-city">Commune : ${city}</h4>
         <p class="tree-card-year-plantation">Année de plantation : ${yearPlantation}</p>
         <p class="tree-card-age hidden">Age : ${age}</p>
         <p class="tree-card-height hidden">Taille : ${height}</p>

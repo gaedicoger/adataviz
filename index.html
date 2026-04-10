@@ -9,17 +9,32 @@
   <body>
     <header>
       <h1>Adataviz</h1>
-      <h2>Découvre le patrimoine arboré de Nantes !</h2>
+      <h2>🌳 Découvre le patrimoine arboré de Nantes et sa métropole !</h2>
     </header>
     <div id="app">
       <form id="search-form">
         <div id="search-content">
-          <input type="text" id="search-bar" name="search-bar" required />
+          <input
+            type="text"
+            id="search-bar"
+            name="search-bar"
+            required
+            placeholder="Renseigner la commune"
+          />
           <button type="submit" id="search">
             <img id="search-icone" src="./img/icons8-loupe-100.png" />
           </button>
+          <div id="toggle-map-container">
+            <button type="button" id="toggle-map">🗺️ Afficher la carte</button>
+          </div>
         </div>
       </form>
+      <iframe
+        id="map-iframe"
+        class="hidden"
+        src="https://data.nantesmetropole.fr/explore/embed/dataset/244400404_patrimoine-arbore-nantes-metropole/map/?disjunctive.variete&disjunctive.lib_genre&disjunctive.lib_espece&disjunctive.lib_hauteur_totale&disjunctive.lib_stade_developpement&disjunctive.classe_age&disjunctive.statut&disjunctive.nom&disjunctive.annee_plantation&sort=annee_plantation&location=10,47.22885,-1.6526&basemap=jawg.streets&static=false&datasetcard=false&scrollWheelZoom=false"
+        frameborder="0"
+      ></iframe>
       <div id="cards-content"></div>
       <div id="buttons-pages"></div>
     </div>
