@@ -25,16 +25,16 @@ formSearch.addEventListener("submit", (event) => {
  */
 export async function searchCity(currentSearch) {
   try {
-    const url = `https://data.nantesmetropole.fr/api/explore/v2.1/catalog/datasets/244400404_patrimoine-arbore-nantes-metropole/records?where=annee_plantation%20IS%20NOT%20NULL%20and%20lib_genre%20IS%20%20NOT%20NULL&limit=20&refine=nom%3A%22${currentSearch}%22`;
-    //Regarder ajouter like dans la reqûete pour sensbilité à la casse.
+    const url = `https://data.nantesmetropole.fr/api/explore/v2.1/catalog/datasets/244400404_patrimoine-arbore-nantes-metropole/records?where=annee_plantation%20IS%20NOT%20NULL%20and%20lib_genre%20IS%20%20NOT%20NULL&limit=20&refine=nom%3A%22${currentSearch}%22`; //URL avec paramètre de recherche sur la commune
     const response = await fetch(url);
     const data = await response.json();
     console.log(data);
     const results = data.results;
 
-    const list = document.getElementById("cards-content");
-    list.innerHTML = "";
+    const list = document.getElementById("cards-content"); //Récupérer le contener des cartes
+    list.innerHTML = ""; //Vider le contener
 
+    //Condition si la recherche ne retourne rien:
     if (results.length === 0) {
       list.innerHTML = `<p>Aucun résultat pour "${currentSearch}" 😢</p>`;
       return;
