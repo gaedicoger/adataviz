@@ -1,8 +1,4 @@
 //Gestion de l'affichage des cartes
-//A intégrer dans une fonction
-
-//Récupèrer la grid :
-const list = document.getElementById("cards-content");
 
 export const displayCards = (tree) => {
   // On récupère les noms d'espèces
@@ -63,6 +59,9 @@ export const displayCards = (tree) => {
         <p class="tree-card-grow-stade hidden">${grow}</p>
         <button class="see-more"> En savoir +</button>
         </div>`;
+
+  //Récupèrer le content des cards :
+  const list = document.getElementById("cards-content");
   // On l'ajoute au html (la liste)
   list.insertAdjacentHTML("beforeend", cardTree);
   //Gestion du bouton "See more" pour afficher la description
