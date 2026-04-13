@@ -1,13 +1,16 @@
 import "./call-data";
 import { displayCards } from "./display-cards.js";
 //Gestion de la barre de recherche
-//
+
+//Sortir la variable de la fonction :
+export let currentSearch = "";
+
 //Récupérer le champ de recherche
 const inputSearch = document.getElementById("search-bar");
 //Récupérer sa valeur au clic du bouton
 const formSearch = document.getElementById("search-form");
 formSearch.addEventListener("submit", (event) => {
-  let currentSearch = inputSearch.value;
+  currentSearch = inputSearch.value;
   event.preventDefault(); //Bloquer le rechargement de la page attention à bien passer event en paramètre du addeventlistener
   currentSearch = currentSearch.toUpperCase(); //Passer la recherche en majuscule
   searchCity(currentSearch);

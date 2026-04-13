@@ -1,6 +1,8 @@
 import "./style.css";
-import { callOpenTreeAPI } from "./call-data";
 import "./load-plus.js";
+import "./search-bar.js";
+import { callOpenTreeAPI } from "./call-data";
+
 //Fichier général pou gérer les fonctions principales
 
 await callOpenTreeAPI();
