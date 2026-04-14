@@ -1,8 +1,8 @@
-// ========================= IMPORTS ==========================
+// =========================== IMPORTS ===========================
 import "./call-data";
 import { displayCards } from "./display-cards.js";
 
-// ========================= BARRE DE RECHERCHE ==========================
+// ==================== BARRE DE RECHERCHE =======================
 
 //Variables courantes :
 export let currentSearch = "";

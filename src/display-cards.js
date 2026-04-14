@@ -1,4 +1,10 @@
+// ========================= AFFICHAGE DES CARTES =============================
+
 //Gestion de l'affichage des cartes
+/**
+ * Générer les cartes pour chaque arbre en piochant dans les data
+ * @param {*} tree
+ */
 
 export const displayCards = (tree) => {
   // On récupère les noms d'espèces
@@ -17,7 +23,7 @@ export const displayCards = (tree) => {
 
   //on récupère l'image
   let imgSource = "";
-  //condition sur l'image à choisir
+  //Switch Case pour afficher la bonne image :
   if (grow === "Adulte") {
     imgSource = "/img/adulte.png";
   }
@@ -43,34 +49,71 @@ export const displayCards = (tree) => {
       imgSource = "/img/default.png";
   }
 
-  // On crée la div html
-  const cardTree = `<div class="card-style" >
-        <div class="card-header">
-          <img src="${imgSource}" alt="Icône de stade de développement"/>
-          <div class="card-titles">
-            <h2 class="tree-card-name">${name}</h2>
-            <h3 class="tree-card-subname">${subName}</h3>
-          </div>
-        </div>
-        <h4 class="tree-card-city">Commune : ${city}</h4>
-        <p class="tree-card-year-plantation">Année de plantation : ${yearPlantation}</p>
-        <p class="tree-card-age hidden">Age : ${age}</p>
-        <p class="tree-card-height hidden">Taille : ${height}</p>
-        <p class="tree-card-grow-stade hidden">${grow}</p>
-        <button class="see-more"> En savoir +</button>
-        </div>`;
+  const cardTree = document.createElement("div");
+  cardTree.classList.add("card-style");
+
+  const cardHeader = document.createElement("div");
+  cardHeader.classList.add("card-header");
+  cardTree.appendChild(cardHeader);
+
+  const imgCard = document.createElement("img");
+  imgCard.src = `${imgSource}`;
+  imgCard.alt = "Icône de stade de développement";
+  cardHeader.appendChild(imgCard);
+
+  const cardTitles = document.createElement("div");
+  cardTitles.classList.add("card-title");
+  cardHeader.appendChild(cardTitles);
+
+  const cardH2 = document.createElement("h2");
+  cardH2.classList.add("tree-card-name");
+  cardH2.innerText = `${name}`;
+  cardTitles.appendChild(cardH2);
+
+  const cardH3 = document.createElement("h3");
+  cardH3.classList.add("tree-card-subname");
+  cardH3.innerText = `${subName}`;
+  cardTitles.appendChild(cardH3);
+
+  const cardCity = document.createElement("h4");
+  cardCity.classList.add("tree-card-city");
+  cardCity.innerText = `Commune : ${city}`;
+  cardTitles.appendChild(cardCity);
+
+  const cardYear = document.createElement("p");
+  cardYear.classList.add("tree-card-year-plantation");
+  cardYear.innerText = `Année de plantation : ${yearPlantation}`;
+  cardTitles.appendChild(cardYear);
+
+  const cardAge = document.createElement("p");
+  cardAge.classList.add("tree-card-age", "hidden");
+  cardAge.innerText = `Age : ${age}`;
+  cardTree.appendChild(cardAge);
+
+  const cardHeight = document.createElement("p");
+  cardHeight.classList.add("tree-card-height", "hidden");
+  cardHeight.innerText = `Taille : ${height}`;
+  cardTree.appendChild(cardHeight);
+
+  const cardGrow = document.createElement("p");
+  cardGrow.classList.add("tree-card-grow-stade", "hidden");
+  cardGrow.innerText = `${grow}`;
+  cardTree.appendChild(cardGrow);
 
   //Récupèrer le content des cards :
   const list = document.getElementById("cards-content");
   // On l'ajoute au html (la liste)
-  list.insertAdjacentHTML("beforeend", cardTree);
-  //Gestion du bouton "See more" pour afficher la description
-  // Récupère la dernière carte générée
-  const lastCard = list.lastElementChild;
-  //On récupère le bouton see-more de la dernière carte :
-  const seeMoreButton = lastCard.querySelector(".see-more");
-  //On récupère les infos supp de la dernière carte :
-  const infoSupp = lastCard.querySelectorAll(".hidden");
+  list.appendChild(cardTree);
+
+  //Gestion du bouton "See more" pour afficher la description supplémentaire :
+  const seeMoreButton = document.createElement("button");
+  seeMoreButton.classList.add("see-more");
+  seeMoreButton.innerText = `En savoir +`;
+  cardTree.appendChild(seeMoreButton);
+
+  //On récupère les infos supp à afficher via la classe hidden:
+  const infoSupp = cardTree.querySelectorAll(".hidden");
+
   //Ecouter le bouton seeMore:
   seeMoreButton.addEventListener("click", () => {
     // boucler sur l'ensemble des infos récupérée par cartes

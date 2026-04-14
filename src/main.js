@@ -4,6 +4,7 @@ import "./style.css";
 import "./load-plus.js";
 import "./search-bar.js";
 import "./button-map.js";
+import "./display-cards.js";
 import { callOpenTreeAPI } from "./call-data";
 
 // ==================== INITIALISATION ========================

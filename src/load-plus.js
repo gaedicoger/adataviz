@@ -1,9 +1,9 @@
-// ========================= IMPORTS ==========================
+// ============================= IMPORTS ===============================
 import { callOpenTreeAPI } from "./call-data.js";
 import { displayCards } from "./display-cards.js";
 import { currentSearch } from "./search-bar.js";
 
-// ========================= BOUTON "CHARGER +" ==========================
+// ======================= BOUTON "CHARGER +" ==========================
 
 //Variables courantes :
 let currentOffset = 20; //Déclarer une variable offset à incrémenter :
