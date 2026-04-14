@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Home</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Home</h1>
+
+    
+
+
+
+    
+
+
+    <h3> </h3>
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+    <section>
+        <article><h1>🌳 Adataviz</h1>
+<p><strong>Découvre le patrimoine arboré de Nantes et sa métropole !</strong></p>
+<h2>📋 Description</h2>
+<p>Adataviz est une application web interactive permettant d'explorer le patrimoine arboré de Nantes Métropole. Les utilisateurs peuvent rechercher des arbres par commune, visualiser leurs caractéristiques détaillées sous forme de cartes, et consulter une carte interactive de leur localisation.</p>
+<h2>✨ Fonctionnalités</h2>
+<ul>
+<li><strong>Recherche par commune</strong> : Filtrer les arbres selon la commune souhaitée</li>
+<li><strong>Affichage en cartes</strong> : Visualisation des informations de chaque arbre (genre, espèce, âge, stade de développement, hauteur)</li>
+<li><strong>Chargement progressif</strong> : Bouton &quot;Charger plus&quot; pour afficher davantage de résultats</li>
+<li><strong>Carte interactive</strong> : Visualisation géographique des arbres via iframe intégrée</li>
+<li><strong>Détails extensibles</strong> : Bouton &quot;En savoir +&quot; sur chaque carte pour afficher des informations supplémentaires</li>
+</ul>
+<h2>🛠️ Technologies utilisées</h2>
+<ul>
+<li><strong>HTML5</strong> : Structure de la page</li>
+<li><strong>CSS3</strong> : Stylisation (fichier style.css référencé mais non fourni)</li>
+<li><strong>JavaScript (ES6+)</strong> : Logique applicative avec modules ES6</li>
+<li><strong>API REST</strong> : <a href="https://data.nantesmetropole.fr">API Open Data de Nantes Métropole</a></li>
+</ul>
+<h2>📂 Structure du projet</h2>
+<pre class="prettyprint source"><code>.
+├── index.html              # Page principale
+├── src/
+│   ├── main.js            # Point d'entrée de l'application
+│   ├── call-data.js       # Appel initial à l'API
+│   ├── search-bar.js      # Gestion de la recherche par commune
+│   ├── display-cards.js   # Affichage des cartes d'arbres
+│   ├── load-plus.js       # Pagination (bouton &quot;Charger plus&quot;)
+│   ├── button-map.js      # Toggle de la carte interactive
+│   └── style.css          # Styles CSS (non fourni)
+└── img/                   # Images des icônes de stades de développement
+    ├── adulte.png
+    ├── juvenile.png
+    ├── jeune.png
+    ├── mature.png
+    └── default.png
+</code></pre>
+<h2>🚀 Installation et lancement</h2>
+<h3>Prérequis</h3>
+<ul>
+<li>Node.js et npm (ou tout serveur de développement local)</li>
+</ul>
+<h3>Étapes</h3>
+<ol>
+<li>
+<p><strong>Cloner le projet</strong></p>
+<pre class="prettyprint source lang-bash"><code>git clone [url-du-repo]
+cd adataviz
+</code></pre>
+</li>
+<li>
+<p><strong>Installer les dépendances</strong> (si un package.json existe)</p>
+<pre class="prettyprint source lang-bash"><code>npm install
+</code></pre>
+</li>
+<li>
+<p><strong>Lancer le serveur de développement</strong></p>
+<pre class="prettyprint source lang-bash"><code>npm run dev
+</code></pre>
+</li>
+<li>
+<p><strong>Ouvrir dans le navigateur</strong></p>
+<pre class="prettyprint source"><code>http://localhost:5173
+</code></pre>
+</li>
+</ol>
+<h2>📊 Source des données</h2>
+<p>Les données proviennent de l'<strong>API Open Data de Nantes Métropole</strong> :</p>
+<ul>
+<li><strong>Dataset</strong> : <code>244400404_patrimoine-arbore-nantes-metropole</code></li>
+<li><strong>Endpoint</strong> : <code>https://data.nantesmetropole.fr/api/explore/v2.1/catalog/datasets/</code></li>
+<li><strong>Filtres appliqués</strong> :
+<ul>
+<li>Arbres avec année de plantation renseignée</li>
+<li>Arbres avec genre (lib_genre) renseigné</li>
+</ul>
+</li>
+</ul>
+<h2>🎯 Fonctionnement de l'API</h2>
+<h3>Appel par défaut (20 premiers arbres)</h3>
+<pre class="prettyprint source lang-javascript"><code>GET https://data.nantesmetropole.fr/api/explore/v2.1/catalog/datasets/244400404_patrimoine-arbore-nantes-metropole/records?where=annee_plantation%20IS%20NOT%20NULL%20and%20lib_genre%20IS%20%20NOT%20NULL&limit=20
+</code></pre>
+<h3>Recherche par commune</h3>
+<pre class="prettyprint source lang-javascript"><code>GET ...&refine=nom%3A%22${commune}%22
+</code></pre>
+<h3>Pagination</h3>
+<pre class="prettyprint source lang-javascript"><code>GET ...&limit=20&offset=${offset}
+</code></pre>
+<h2>🎨 Caractéristiques des arbres affichées</h2>
+<ul>
+<li><strong>Genre</strong> (lib_genre) : Ex: Quercus, Tilia, Acer</li>
+<li><strong>Espèce</strong> (lib_espece) : Ex: robur, cordata, platanoides</li>
+<li><strong>Commune</strong> (nom) : Commune de plantation</li>
+<li><strong>Année de plantation</strong> (annee_plantation)</li>
+<li><strong>Classe d'âge</strong> (classe_age)</li>
+<li><strong>Stade de développement</strong> (lib_stade_developpement) : Jeune, Juvénile, Adulte, Mature</li>
+<li><strong>Hauteur totale</strong> (lib_hauteur_totale)</li>
+</ul>
+<h2>📝 Licence</h2>
+<p>Ce projet est à but éducatif.</p>
+<h2>👥 Auteur</h2>
+<p>Projet réalisé dans le cadre d'une formation en développement web.</p>
+<hr>
+<p><strong>Note</strong> : Les données sont fournies par Nantes Métropole sous licence Open Data.</p></article>
+    </section>
+
+
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#buildCards">buildCards</a></li><li><a href="global.html#callOpenTreeAPI">callOpenTreeAPI</a></li><li><a href="global.html#displayCards">displayCards</a></li><li><a href="global.html#displayImgTree">displayImgTree</a></li><li><a href="global.html#infoTree">infoTree</a></li><li><a href="global.html#loadMoreTree">loadMoreTree</a></li><li><a href="global.html#searchCity">searchCity</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.5</a> on Tue Apr 14 2026 15:47:18 GMT+0200 (heure d’été d’Europe centrale)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

@@ -21,7 +21,7 @@ formSearch.addEventListener("submit", (event) => {
 /**
  * Appel de l'API avec le paramètre de recherche sur la commune :
  * @param {*} currentSearch
- * @returns
+ * @returns {string} Affiche une info si aucuns résulat
  */
 export async function searchCity(currentSearch) {
   try {
