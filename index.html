@@ -27,16 +27,19 @@
           <button type="submit" id="search">
             <img id="search-icone" src="./img/icons8-loupe-100.png" />
           </button>
-          <div id="toggle-map-container">
-            <button type="button" id="toggle-map">🗺️ Afficher la carte</button>
-          </div>
         </div>
       </form>
+      <div id="toggle-map-container">
+        <button type="button" id="toggle-map">🗺️ Afficher la carte</button>
+      </div>
       <div id="map" class="hidden" style="height: 50vh"></div>
       <div id="cards-content"></div>
       <div id="buttons-pages">
         <button type="button" id="button-load">➕ Charger plus</button>
       </div>
+    </div>
+    <div id="back-top">
+      <img id="backtop-icone" class="hidden" src="./img/back-top.png" />
     </div>
     <script type="module" src="/src/main.js"></script>
     <script src="https://api.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.js"></script>

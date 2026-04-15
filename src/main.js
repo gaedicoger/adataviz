@@ -1,12 +1,13 @@
 // ========================= IMPORTS ==========================
 
+import { callOpenTreeAPI } from "./call-data";
 import "./style.css";
 import "./display-map.js";
 import "./load-plus.js";
 import "./search-bar.js";
 import "./button-map.js";
 import "./display-cards.js";
-import { callOpenTreeAPI } from "./call-data";
+import "./button-back-top.js";
 
 // ==================== INITIALISATION ========================
 
