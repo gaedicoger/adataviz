@@ -1,9 +1,5 @@
 // ============================== MAP-BOX =================================
 
-//Configuration du token:
-// mapboxgl.accessToken =
-//   "pk.eyJ1IjoibWFlbGllIiwiYSI6ImNtbnp0M3czZzAweW8yc3IwN2toeWwyMmYifQ.Efz3OIAabED77mwa7DcJiw";
-
 mapboxgl.accessToken = import.meta.env.VITE_MAPBOX_TOKEN;
 
 //Stockage de l'URL API

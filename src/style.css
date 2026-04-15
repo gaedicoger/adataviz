@@ -68,10 +68,6 @@ h2 {
 
 #map {
   margin: 20px 0;
-  width: 100%;
-  max-width: 1000px;
-  height: 450px;
-  align-items: center;
   border-radius: 16px;
   border: 3px solid var(--color-wood-medium);
   box-shadow: 0 6px 20px var(--color-shadow);
