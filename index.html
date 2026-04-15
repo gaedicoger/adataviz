@@ -2,7 +2,10 @@
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link
+      href="https://api.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.css"
+      rel="stylesheet"
+    />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Adataviz</title>
   </head>
@@ -29,17 +32,13 @@
           </div>
         </div>
       </form>
-      <iframe
-        id="map-iframe"
-        class="hidden"
-        src="https://data.nantesmetropole.fr/explore/embed/dataset/244400404_patrimoine-arbore-nantes-metropole/map/?disjunctive.variete&disjunctive.lib_genre&disjunctive.lib_espece&disjunctive.lib_hauteur_totale&disjunctive.lib_stade_developpement&disjunctive.classe_age&disjunctive.statut&disjunctive.nom&disjunctive.annee_plantation&sort=annee_plantation&location=10,47.22885,-1.6526&basemap=jawg.streets&static=false&datasetcard=false&scrollWheelZoom=false"
-        frameborder="0"
-      ></iframe>
+      <div id="map" class="hidden" style="width: 50%; height: 50vh"></div>
       <div id="cards-content"></div>
       <div id="buttons-pages">
         <button type="button" id="button-load">➕ Charger plus</button>
       </div>
     </div>
     <script type="module" src="/src/main.js"></script>
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.js"></script>
   </body>
 </html>

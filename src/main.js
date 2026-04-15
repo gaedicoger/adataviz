@@ -1,6 +1,7 @@
 // ========================= IMPORTS ==========================
 
 import "./style.css";
+import "./display-map.js";
 import "./load-plus.js";
 import "./search-bar.js";
 import "./button-map.js";
