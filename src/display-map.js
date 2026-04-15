@@ -1,10 +1,13 @@
 // ============================== MAP-BOX =================================
 
+//Imports:
+import { currentSearch } from "./search-bar";
+import { currentOffset } from "./load-plus";
+
 mapboxgl.accessToken = import.meta.env.VITE_MAPBOX_TOKEN;
 
 //Stockage de l'URL API
-const API_RECORDS =
-  "https://data.nantesmetropole.fr/api/explore/v2.1/catalog/datasets/244400404_patrimoine-arbore-nantes-metropole/records?limit=20";
+const API_RECORDS = `https://data.nantesmetropole.fr/api/explore/v2.1/catalog/datasets/244400404_patrimoine-arbore-nantes-metropole/records?where=annee_plantation%20IS%20NOT%20NULL%20and%20lib_genre%20IS%20%20NOT%20NULL&limit=20`;
 
 // ── connect() ─────────────────────────────────────────────────────────────────
 
@@ -19,7 +22,7 @@ fetchMarkers();
 
 // ── fetchMarkers() ────────────────────────────────────────────────────────────
 
-async function fetchMarkers() {
+export async function fetchMarkers() {
   const response = await fetch(API_RECORDS);
   const data = await response.json();
   const markers = data.results;
@@ -55,13 +58,13 @@ function fitMapToMarkers(markers) {
 // ── buildPopupHTML() ──────────────────────────────────────────────────────────
 
 function buildPopupHTML(marker) {
-  const nom = marker.libelle_commun || "Inconnu";
-  const genre = marker.genre || "—";
-  const espece = marker.espece || "—";
+  const nom = marker.lib_genre || "Inconnu";
+  const genre = marker.lib_espece || "—";
+  const age = marker.classe_age || "—";
 
   return `
     <div class="popup-title">🌳 ${nom}</div>
-    <div class="popup-row"><span class="popup-label">Genre</span><span class="popup-value">${genre}</span></div>
-    <div class="popup-row"><span class="popup-label">Espèce</span><span class="popup-value">${espece}</span></div>
+    <div class="popup-row"><span class="popup-label">Genre </span><span class="popup-value">${genre}</span></div>
+    <div class="popup-row"><span class="popup-label">Age </span><span class="popup-value">${age}</span></div>
   `;
 }

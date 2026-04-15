@@ -6,7 +6,7 @@ import { currentSearch } from "./search-bar.js";
 // ======================= BOUTON "CHARGER +" ==========================
 
 //Variables courantes :
-let currentOffset = 20; //Déclarer une variable offset à incrémenter :
+export let currentOffset = 20; //Déclarer une variable offset à incrémenter :
 
 //Dom:
 const buttonLoad = document.getElementById("button-load"); //Récupérer le bouton charger plus

@@ -1,4 +1,8 @@
 // =========================== BOUTON TOOGLE MAP ===============================
+
+//Imports :
+import { fetchMarkers } from "./display-map";
+
 // Dom :
 const toggleMapButton = document.getElementById("toggle-map"); //Récupération du bouton map
 const mapContent = document.getElementById("map"); // Récupération du contener map
