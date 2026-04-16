@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      href="https://api.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.css"
+      rel="stylesheet"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Adataviz</title>
+    <script type="module" crossorigin src="/adataviz/assets/index-cplBSy6B.js"></script>
+    <link rel="stylesheet" crossorigin href="/adataviz/assets/index-DdLj8BJJ.css">
+  </head>
+  <body>
+    <header>
+      <h1>Adataviz</h1>
+      <h2>🌳 Découvre le patrimoine arboré de Nantes et sa métropole !</h2>
+    </header>
+    <div id="app">
+      <form id="search-form">
+        <div id="search-content">
+          <input
+            type="text"
+            id="search-bar"
+            name="search-bar"
+            required
+            placeholder="Renseigner la commune"
+          />
+          <button type="submit" id="search">
+            <img id="search-icone" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEoklEQVR4nO3cT4hVdRTA8Z+BhmZlCOGfKFqILqzcKKabDMIISh0IDGkZ4Qhhm1ALXAVhCGJgkwwUSU0lBTbaIjAaQwbSwRZtE9pYlCIhaDU13zh4hHiL8Z775/3+vPOBWc+597zfu797fue8EJxzzjnnnHPOOeecc845VzpgDrAKGAL2AO8CHwMngHHgE+A94A3geeAR4I7YcRcFWAi8CIwBv2J3BfgCeAlYFPt6sgU8CnwAXKM9N4DPgA2xry8bwBrgS2CGbn0DbIx9vckC7gLeAqbpnxngQ+D+2NefFGAtcJF4fgeeiX0fkgC8CvxNfDPAmwO7K9Mt7Nuk5yNgXhgk8inUHVSqvhqopAAHSd/YQHx96TMjFwdCyYDHW3qATwOTwFFgH7ATeFnLKUeAM8CfLT3onwslAu4Bfm54g04DO4C7K/y/+VrzGm/4kimll+WhNMChBjflO2Bdg/+9GjjV4P9/Ggosh/xTs/Y0LFvk0E4c24E/aiblqVAKrU1Z/SZv8B3EsrJmVeD7UALgsRrf4ZKMVR3GtAz4qUZSNofc1XgBvNHFyugFrACuGmP7OhRwuGQ9zxjuY3xDxtj+BR4IudKTPutuak6fYzxujPG1kCs947ZYFyHGh41nMBMh42qu5Qz8dMRYjxnilArAgpAb7Q6x2BEx1k3GWDeF3ADbDBc4XaUc0vFxwGVDvLtCboC9hgucTCDezw3xHg650Sa2qo4mEO9+Q7wnQm70KLSqPZlt0b8NhdevhhOId4sh3vMhN3oOUdXOBOJ91hDvDyE32gSdzdsvNw++qjobcqNd6FUdSSDe1w3xngy50ZGAqs4kEO+YId6RkBudz7CUI+ZHLvNcMsS7O+RGh2UshiLGut4Y6/qQGy1HSMdGVeMRYx0xHqDdGXKkk0tVyTHv6ggxLgGuF73DukXHyCxORYhx1Bhj9KpCbcB9usQttve57D5jiE1amZaFnOlMn4X0Ta3sQ1xLjTurPN8/esmAJXYXu/wkAvcCF2rEtTWUQAcsraRvakVHK+NCjXjO9bsBozMy7Vqz4Vn6pra1/My4RD35HdvOBnif+o5Ld0jDVTHaoAs+/2dHLxk91hbRuqa1O+SJqpNN+gY+UmOn12tKdoyhNMDT2v3X1GU9A9+vZfMtep7xgg7wSKHwF9pVbFJk9DhXU8UlRSurKU/g3o7s0BaHksjIsY4e52qqxJUyz3golJoiV4qU6A/04Zd/ulLeShG6Q7KcnaSkvJUiZPRYpl0j3NCT+klvosyVImTaVQYs6d65W+UQPSbwpMxGBixlpq+lF8n/n2fIitjaWyj0pFQkM33SSAdMAH/VuEnS0XJWf3Zj1pK+J8UIWKAV213AO9o/LKX98/o3qS2sUr/arbUs088seVISBCxq4TlW5u4rFjwp6cGTkh48KenBk5Ie2tl9ydZ9buxrKQbtJOWV2NdRFJp/ff0Y+xqKQ/OVkt9PcxSelMWx4y8S9ZJypZgOyEKSMho75uJRPSnSGvtQ7HgHKSkTt0nGk7HjHCjAXHnPkK1tzzND+oofjB3fQOPm2Y3vppxzzjnnnHPOOeeccyG6/wDr2/PWeHeM1wAAAABJRU5ErkJggg==" />
+          </button>
+        </div>
+      </form>
+      <div id="toggle-map-container">
+        <button type="button" id="toggle-map">🗺️ Afficher la carte</button>
+      </div>
+      <div id="map" class="hidden" style="width: 100%; height: 50vh"></div>
+      <div id="cards-content"></div>
+      <div id="buttons-pages">
+        <button type="button" id="button-load">➕ Charger plus</button>
+      </div>
+    </div>
+    <div id="back-top">
+      <img id="backtop-icone" class="hidden" src="data:image/png;base64,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" />
+    </div>
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.js"></script>
+  </body>
+</html>
