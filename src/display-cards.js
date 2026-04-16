@@ -1,5 +1,12 @@
 // ============================ DISPLAY CARDS=================================
 
+//Imports:
+import adulte from "./assets/adulte.png";
+import img from "./assets/default.png";
+import jeune from "./assets/jeune.png";
+import juvenile from "./assets/juvenile.png";
+import mature from "./assets/mature.png";
+
 /**
  * Récupère les infos sur chaque arbres
  * @param {*} tree
@@ -39,28 +46,28 @@ const displayImgTree = (tree, values) => {
   const grow = tree.lib_stade_developpement;
   //Switch Case pour afficher la bonne image :
   if (grow === "Adulte") {
-    imgSource = "/img/adulte.png";
+    imgSource = img;
   }
 
   switch (grow) {
     case "Adulte":
-      return (imgSource = "/img/adulte.png");
+      return (imgSource = adulte);
       break;
 
     case "Juvénile":
-      return (imgSource = "/img/juvenile.png");
+      return (imgSource = juvenile);
       break;
 
     case "Jeune":
-      return (imgSource = "/img/jeune.png");
+      return (imgSource = jeune);
       break;
 
     case "Mature":
-      return (imgSource = "/img/mature.png");
+      return (imgSource = mature);
       break;
 
     default:
-      return (imgSource = "/img/default.png");
+      return (imgSource = img);
   }
 };
 
