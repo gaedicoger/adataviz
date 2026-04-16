@@ -18,8 +18,6 @@ export let map = new mapboxgl.Map({
   zoom: 5,
 });
 
-fetchMarkers();
-
 // ── fetchMarkers() ────────────────────────────────────────────────────────────
 
 export async function fetchMarkers() {

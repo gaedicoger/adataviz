@@ -1,6 +1,7 @@
 // =========================== IMPORTS ===========================
 import "./call-data";
 import { displayCards } from "./display-cards.js";
+import { BASE_URL } from "./call-data.js";
 
 // ==================== BARRE DE RECHERCHE =======================
 

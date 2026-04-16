@@ -2,13 +2,13 @@
 
 import { callOpenTreeAPI } from "./call-data";
 import "./style.css";
-import "./display-map.js";
+import { fetchMarkers } from "./display-map.js";
 import "./load-plus.js";
 import "./search-bar.js";
 import "./button-map.js";
 import "./display-cards.js";
 import "./button-back-top.js";
-import "./global-call-data.js";
+// import "./global-call-data.js";
 
 // ==================== INITIALISATION ========================
 
@@ -17,3 +17,4 @@ import "./global-call-data.js";
  */
 
 await callOpenTreeAPI();
+await fetchMarkers();
