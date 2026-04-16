@@ -1,15 +1,14 @@
-// ============================== MAP-BOX =================================
+// ============================== DISPLAY MAP =================================
 
-//Imports:
-import { currentSearch } from "./search-bar";
-import { currentOffset } from "./load-plus";
-
+//Gestion du token API :
 mapboxgl.accessToken = import.meta.env.VITE_MAPBOX_TOKEN;
 
 //Stockage de l'URL API
 const API_RECORDS = `https://data.nantesmetropole.fr/api/explore/v2.1/catalog/datasets/244400404_patrimoine-arbore-nantes-metropole/records?where=annee_plantation%20IS%20NOT%20NULL%20and%20lib_genre%20IS%20%20NOT%20NULL&limit=20`;
 
-// ── connect() ─────────────────────────────────────────────────────────────────
+/**
+ * Construction de la map:
+ */
 
 export let map = new mapboxgl.Map({
   container: "map",
@@ -18,19 +17,11 @@ export let map = new mapboxgl.Map({
   zoom: 5,
 });
 
-// ── fetchMarkers() ────────────────────────────────────────────────────────────
-
-export async function fetchMarkers() {
-  const response = await fetch(API_RECORDS);
-  const data = await response.json();
-  const markers = data.results;
-  addMarkersToMap(markers);
-  fitMapToMarkers(markers);
-}
-
-// ── addMarkersToMap() ─────────────────────────────────────────────────────────
-
-function addMarkersToMap(markers) {
+/**
+ * Ajouter les marqueurs à la map
+ * @param {*} markers
+ */
+export function addMarkersToMap(markers) {
   markers.forEach((marker) => {
     const popup = new mapboxgl.Popup({ maxWidth: "260px" }).setHTML(
       buildPopupHTML(marker),
@@ -43,9 +34,11 @@ function addMarkersToMap(markers) {
   });
 }
 
-// ── fitMapToMarkers() ─────────────────────────────────────────────────────────
-
-function fitMapToMarkers(markers) {
+/**
+ * Centrer la map autour des markers
+ * @param {*} markers
+ */
+export function fitMapToMarkers(markers) {
   const bounds = new mapboxgl.LngLatBounds();
   markers.forEach((marker) =>
     bounds.extend([marker.geo_point_2d.lon, marker.geo_point_2d.lat]),
@@ -53,7 +46,11 @@ function fitMapToMarkers(markers) {
   map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 });
 }
 
-// ── buildPopupHTML() ──────────────────────────────────────────────────────────
+/**
+ * Construire les popup
+ * @param {*} marker
+ * @returns le pop up
+ */
 
 function buildPopupHTML(marker) {
   const nom = marker.lib_genre || "Inconnu";

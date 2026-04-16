@@ -1,4 +1,4 @@
-// ========================= AFFICHAGE DES CARTES =============================
+// ============================ DISPLAY CARDS=================================
 
 /**
  * Récupère les infos sur chaque arbres
@@ -146,7 +146,7 @@ const buildCards = (tree, imgSource, values) => {
 };
 
 /**
- *
+ * Fonction affichage des cartes
  * @param {*} tree
  */
 export const displayCards = (tree) => {
