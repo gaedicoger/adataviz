@@ -8,9 +8,11 @@
     "build": "vite build",
     "preview": "vite preview",
     "test": "vitest",
-    "generate-doc": "jsdoc -c jsdoc.json"
+    "generate-doc": "jsdoc -c jsdoc.json",
+    "deploy": "npm run build && gh-pages -d dist"
   },
   "devDependencies": {
+    "gh-pages": "^6.3.0",
     "jsdoc": "^4.0.5",
     "vite": "^8.0.4",
     "vitest": "^4.1.4"
