@@ -11,7 +11,7 @@ const API_RECORDS = `https://data.nantesmetropole.fr/api/explore/v2.1/catalog/da
 
 // ── connect() ─────────────────────────────────────────────────────────────────
 
-let map = new mapboxgl.Map({
+export let map = new mapboxgl.Map({
   container: "map",
   style: "mapbox://styles/maelie/cmb7nnzmz00r901pact8o1xtf",
   center: [2.3488, 48.8534],

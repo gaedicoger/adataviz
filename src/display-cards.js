@@ -25,6 +25,7 @@ const infoTree = (tree) => {
     height: height,
   };
   return values;
+  console.log(values);
 };
 
 /**

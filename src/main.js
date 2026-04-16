@@ -8,6 +8,7 @@ import "./search-bar.js";
 import "./button-map.js";
 import "./display-cards.js";
 import "./button-back-top.js";
+import "./global-call-data.js";
 
 // ==================== INITIALISATION ========================
 

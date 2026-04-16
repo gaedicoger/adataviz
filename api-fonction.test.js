@@ -10,13 +10,4 @@ describe("Appel de l'API", () => {
     //Vérifier que la fonction a été appelée
     expect(mockFn).callOpenTreeAPI();
   });
-  // it("", () => {
-  //   expect(callOpenTreeAPI()).toBe(5);
-  // });
-  // it("", () => {
-  //   expect(callOpenTreeAPI()).toBe(5);
-  // });
-  // it("", () => {
-  //   expect(callOpenTreeAPI()).toBe(5);
-  // });
 });
