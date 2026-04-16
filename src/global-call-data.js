@@ -16,7 +16,6 @@ export async function callOpenTreeAPI() {
     currentURL = BASE_URL;
     const response = await fetch(currentURL);
     const data = await response.json();
-    console.log(data);
     const results = data.results;
 
     results.forEach((tree) => {
