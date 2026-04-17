@@ -1,7 +1,7 @@
 // ============================ DISPLAY CARDS=================================
 
 //Imports:
-import adulte from "./assets/adulte.png";
+import adulte from "./assets/adulte.png"; //Déclarer la variable en import pour permettre d'accéder à l'image
 import img from "./assets/default.png";
 import jeune from "./assets/jeune.png";
 import juvenile from "./assets/juvenile.png";
@@ -37,10 +37,9 @@ const infoTree = (tree) => {
 /**
  * Choisi quelle image sva s'afficher sur chaques cartes
  * @param {*} tree
- * @param {*} values
  * @returns {string} Chemin de l'image
  */
-const displayImgTree = (tree, values) => {
+export const displayImgTree = (tree) => {
   let imgSource = ""; //on récupère l'image
   const grow = tree.lib_stade_developpement;
   //Switch Case pour afficher la bonne image :
@@ -156,7 +155,6 @@ const buildCards = (tree, imgSource, values) => {
  * @param {*} tree
  */
 export const displayCards = (tree) => {
-  const values = infoTree(tree);
-  const imgSource = displayImgTree(tree, values);
-  buildCards(tree, imgSource, values);
+  const imgSource = displayImgTree(tree, infoTree(tree));
+  buildCards(tree, imgSource, infoTree(tree));
 };
