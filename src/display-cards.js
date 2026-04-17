@@ -23,6 +23,7 @@ const infoTree = (tree) => {
   const height = tree.lib_hauteur_totale ?? "inconnue"; //On récupère la taille
 
   const values = {
+    // Stocker le résultat sous forme de variable pour permettre de passer uniquement cette varaible en paramètre su besoin.
     name: name,
     subname: subName,
     city: city,

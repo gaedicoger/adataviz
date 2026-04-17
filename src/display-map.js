@@ -6,6 +6,8 @@ mapboxgl.accessToken = import.meta.env.VITE_MAPBOX_TOKEN;
 //Stockage de l'URL API
 const API_RECORDS = `https://data.nantesmetropole.fr/api/explore/v2.1/catalog/datasets/244400404_patrimoine-arbore-nantes-metropole/records?where=annee_plantation%20IS%20NOT%20NULL%20and%20lib_genre%20IS%20%20NOT%20NULL&limit=20`;
 
+//Variables:
+const mapMarkers = [];
 /**
  * Construction de la map:
  */
@@ -17,6 +19,14 @@ export let map = new mapboxgl.Map({
   zoom: 5,
 });
 
+export function deleteMarkerToMap() {
+  console.log(mapMarkers.length);
+  mapMarkers.forEach((mapMarker) => {
+    mapMarker.remove();
+  });
+  mapMarkers.length = 0; //réinitialise la liste
+}
+
 /**
  * Ajouter les marqueurs à la map
  * @param {*} markers
@@ -27,10 +37,11 @@ export function addMarkersToMap(markers) {
       buildPopupHTML(marker),
     );
 
-    new mapboxgl.Marker()
+    const mapMarker = new mapboxgl.Marker()
       .setLngLat([marker.geo_point_2d.lon, marker.geo_point_2d.lat])
       .setPopup(popup)
       .addTo(map);
+    mapMarkers.push(mapMarker);
   });
 }
 

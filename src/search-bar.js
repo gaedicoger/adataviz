@@ -1,6 +1,7 @@
 // ======================== BARRE DE RECHERCHE ================================
 
 //Imports:
+import { deleteMarkerToMap } from "./display-map.js";
 import { searchCity } from "./global-call-data.js";
 import { fetchMarkers } from "./global-call-data.js";
 
@@ -16,5 +17,6 @@ formSearch.addEventListener("submit", (event) => {
   event.preventDefault(); //Bloquer le rechargement de la page attention à bien passer event en paramètre du addeventlistener
   currentSearch = currentSearch.toUpperCase(); //Passer la recherche en majuscule
   searchCity(currentSearch); //Appeler la fonction search avec la valeur de la recherche
+  deleteMarkerToMap();
   fetchMarkers();
 });

@@ -8,10 +8,10 @@ const buttonBackTop = document.getElementById("backtop-icone");
  */
 window.addEventListener("scroll", () => {
   if (window.scrollY > 100) {
-    //Je descend de plus de  px dans la page alors
-    buttonBackTop.classList.remove("hidden"); //La bouton s'affiche
+    //Si ma fênetre se déplace de plus de 100 px dans la page sur l'axe Y
+    buttonBackTop.classList.remove("hidden"); //Le bouton s'affiche car on enlève la classe hidden
   } else {
-    buttonBackTop.classList.add("hidden");
+    buttonBackTop.classList.add("hidden"); //Sinon on ajoute la classe hidden
   }
 });
 
@@ -19,7 +19,9 @@ window.addEventListener("scroll", () => {
  * Retour en haut de la page au click du bouton :
  */
 buttonBackTop.addEventListener("click", () => {
+  //Ecoute du bouton au click
   window.scrollTo({
+    //on configure le comportement, la fenêtre revient à cette position avec un smooth
     top: 0,
     left: 0,
     behavior: "smooth",
